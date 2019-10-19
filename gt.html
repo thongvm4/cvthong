@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.khoi {
+			background-color: lightblue;
+			width: 100px;
+			height: 60px;
+		}
+
+		.chuyendong {
+			animation: ani 1s forwards;
+		}
+		@-webkit-keyframes ani {
+		from {
+			transform: translateX(0px);
+			}
+		to {
+			transform: translateX(200px);
+			}
+		}
+
+		.dixuong {
+			animation: thunghiem 0.5s forwards;
+		}
+		@-webkit-keyframes thunghiem {
+			from {
+				transform: translateX(200px) translateY(0);
+			}
+			to {
+				transform: translateX(200px) translateY(300px);
+			}
+		}
+
+
+	</style>
+</head>
+<body>
+	<button class="n1" type="button">Button</button>
+	<div class="khoi"></div>
+
+
+
+
+<script type="text/javascript">
+	var nut = document.querySelector('.n1'),
+		khoi = document.querySelector('.khoi');
+
+	khoi.addEventListener('webkitAnimationEnd', function () {
+		console.log('thu ne');
+		this.classList.add('dixuong');
+	})
+
+	nut.addEventListener('click', function () {
+		khoi.classList.add('chuyendong');
+	})
+
+
+
+</script>
+</body>
+</html>

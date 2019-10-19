@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Hieu ung</title>
+	<link rel="stylesheet" href="1.css">
+	<link rel="stylesheet" href="css/font-awesome.css">
+	<link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body>
+
+<div id="slidewrapper">
+	<div class="slides">
+		<ul class="list-unstyled">
+			<li class="ko dangxem" style="background-image:url(https://images.pexels.com/photos/2537604/pexels-photo-2537604.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940); background-size: cover;"></li>
+			<li class="mot" 	style="background-image:url(https://images.pexels.com/photos/2131935/pexels-photo-2131935.jpeg?auto=compress&cs=tinysrgb&h=650&w=940);background-size: cover;"></li>
+			<li class="hai" style="background-image:url(https://images.pexels.com/photos/2859647/pexels-photo-2859647.jpeg?auto=compress&cs=tinysrgb&h=650&w=940);background-size: cover;"></li>
+			<li class="ba" style="background-image:url(https://images.pexels.com/photos/415978/pexels-photo-415978.jpeg?auto=compress&cs=tinysrgb&h=650&w=940);background-size: cover;"></li>
+			<li class="bon" style="background-image:url(https://images.pexels.com/photos/787630/pexels-photo-787630.jpeg?auto=compress&cs=tinysrgb&h=650&w=940);background-size: cover;"></li>
+		</ul>
+	</div>
+
+	<div class="nuts">
+		<b class="trai"><i class="fa fa-angle-left"></i></b>
+		<b class="phai"><i class="fa fa-angle-right"></i></b>
+	</div>
+</div>
+
+<script type="text/javascript">
+	var nutPhai = document.querySelector('.nuts b.phai');
+	var nutTrai = document.querySelector('.nuts b.trai');
+	var slides = document.querySelectorAll('.slides ul li');
+	var chiSoHienTai = 0,
+		soLuongSlide = slides.length,
+		trangthai = 'dangdungyen';
+
+	nutPhai.addEventListener('click', function (argument) {
+		//kiem tra trang thai, chuyen dong hay dung yen
+		if (trangthai === 'dangchuyendong') {return false}; // dang chuyen dong --> de cho cd, ko lam gi het
+
+		//dang dung yen, xly cd --> danh dau dg cd--> ko tiep khach nua
+		trangthai = 'dangchuyendong';
+		var trangthaicuahaichuyendong = 0;
+
+
+		// xac dinh phan tu hien tai
+		var phanTuHienTai = slides[chiSoHienTai];
+
+		// xac dinh phan tu tiep theo dua tren phan tu hien tai
+		if (chiSoHienTai < soLuongSlide - 1) {
+			chiSoHienTai++;
+			console.log(soLuongSlide);
+		} else {
+			// la phan tu cuoi cung roi
+			chiSoHienTai = 0;
+		}
+		var phanTuTiepTheo = slides[chiSoHienTai];
+
+		phanTuHienTai.addEventListener('webkitAnimationEnd', function () {
+			this.classList.remove('dangxem');
+			this.classList.remove('bienHinh');
+			trangthaicuahaichuyendong++;  // 1
+			if (trangthaicuahaichuyendong === 2) {trangthai = 'dangdungyen'};
+		});
+
+		phanTuTiepTheo.addEventListener('webkitAnimationEnd', function () {
+			this.classList.remove('xuatHien');
+			this.classList.add('dangxem');
+			trangthaicuahaichuyendong++; // 2
+			if (trangthaicuahaichuyendong === 2) {trangthai = 'dangdungyen'};
+			// console.log(slides[chiSoHienTai]);
+		});
+
+		// themchuyen dong vao 2 phan tu do bang viec them class
+		phanTuHienTai.classList.add('bienHinh');
+		phanTuTiepTheo.classList.add('xuatHien');
+		// sau khi chuyen dong xong roi, chuyen class .dangxem, bo di cac class da them buoc tren --> tranh hien tuong chong class
+	});
+
+	nutTrai.addEventListener('click', function (argument) {
+		if (trangthai === 'dangchuyendong') {return false};
+		trangthai = 'dangchuyendong';
+		//xac dinh 2 phan tu hien tai vs tiep theo
+		var phanTuHienTai = slides[chiSoHienTai];
+		var trangthaicuahaichuyendong = 0;
+		//xac dinh phan tu tiep theo
+		if ( chiSoHienTai > 0 ) {
+			chiSoHienTai--;
+		}
+		else {
+			chiSoHienTai = soLuongSlide -1;
+		}
+		console.log(chiSoHienTai)
+		var phanTuTiepTheo = slides[chiSoHienTai];
+
+		phanTuHienTai.addEventListener('webkitAnimationEnd', function () {
+			this.classList.remove('dangxem');
+			this.classList.remove('bienHinhPre');
+			trangthaicuahaichuyendong++;
+			if (trangthaicuahaichuyendong === 2) {trangthai = 'dangdungyen';}
+
+		});
+		phanTuTiepTheo.addEventListener('webkitAnimationEnd', function () {
+			this.classList.add('dangxem');
+			this.classList.remove('xuatHienPre');
+			trangthaicuahaichuyendong++;
+			if (trangthaicuahaichuyendong === 2) {trangthai = 'dangdungyen';}
+		});
+
+		phanTuHienTai.classList.add('bienHinhPre');
+		phanTuTiepTheo.classList.add('xuatHienPre');
+	});
+
+
+
+	
+</script>
+</body>
+</html>

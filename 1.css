@@ -1,0 +1,326 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+}
+
+#slidewrapper {
+ 	width: 100%;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+	perspective: 800px;
+}
+
+.slides {
+	width: 100%;
+	height: 100%;
+}
+.slides ul {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+.slides ul li {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	opacity: 0;
+}
+
+.slides ul li.dangxem {
+	opacity: 1;
+}
+
+
+.nuts {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	z-index: 9;
+
+}
+.nuts b{
+	font-size: 100px;
+	color: gray;
+	padding: 10px 20px;
+	cursor: pointer;
+	transition: .4s;
+}
+
+.nuts b:hover {
+	color: #fff;;
+}
+
+
+.bienHinh {
+	animation: animot 1s forwards;
+}
+/*@-webkit-keyframes animot {
+	from {
+		transform: scale(1);
+	}
+	to {
+		transform: scale(2);
+		opacity: 0;
+	}
+}*/
+/*@-webkit-keyframes animot {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(100%);
+		opacity: 0;
+	}
+}*/
+/*@-webkit-keyframes animot {
+	from {
+		transform: scale(1);
+	}
+	to {
+		transform: scale(0.8);
+		opacity: 0;
+	}
+}*/
+/*@-webkit-keyframes animot {
+	0% {
+		transform: translateX(0);
+	}
+	40% {
+		transform: translateX(-10%);
+	}
+	100% {
+		transform: translateX(100%);
+	}
+}*/
+/*@-webkit-keyframes animot {
+	form {
+		transform: translateX(0) scale(1);  
+	}
+	to {
+		transform: translateX(100%) scale(0.85 );
+		opacity: 0;
+	}
+}
+*/
+/*@-webkit-keyframes animot {
+	form {
+		z-index: 8;  
+		height: 100%;
+	}
+	to {
+		z-index: 8;
+		height: 0;
+	}
+}*/
+@-webkit-keyframes animot {
+	form {
+		transform: translateY(0%);
+		opacity: 1;
+		z-index: 8;
+	}
+	to {
+		transform: translateY(100%);
+		opacity: 1;
+		z-index: 8;
+	}
+}
+
+
+
+.xuatHien {
+	animation: anihai 1s forwards;
+}
+/*@-webkit-keyframes anihai {
+	from {
+		transform: scale(0.9);
+		opacity: 0;
+	}
+	to {
+		transform: scale(1);
+		opacity: 1;
+	}
+}*/
+/*@-webkit-keyframes anihai {
+	from {
+		transform: translateX(-100%);
+		opacity: 0;
+	}
+	to {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}*/
+/*@-webkit-keyframes anihai {
+	from {
+		transform: translateX(100%);
+		opacity: 0;
+	}
+	to {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}*/
+/*@-webkit-keyframes anihai {
+	from {
+		transform: translateX(-100%);
+		opacity: 0;
+	}
+	to {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}*/
+/*@-webkit-keyframes anihai {
+	from {
+		transform: translateX(-100%) rotateY(-65deg);
+		opacity: 0;
+	}
+	to {
+		transform: translateX(0);
+		opacity: 1;
+	}
+} */
+@-webkit-keyframes anihai {
+	from {
+		transform: translateY(-10%);
+		opacity: 1;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+} 
+
+
+
+/*---------------------------------------------------------*/
+
+.bienHinhPre {
+	animation: aninguoc 1s forwards;
+}
+/*@-webkit-keyframes aninguoc {
+	from {
+		transform: scale(1);
+		opacity: 1;
+	}
+	to {
+		transform: scale(0);
+		opacity: 0;
+	}
+}*/
+/*@-webkit-keyframes aninguoc {
+	from {
+		transform: translateX(0);
+		opacity: 1;
+	}
+	to {
+		transform: translateX(-100%);
+		opacity: 0;
+	}
+}*/
+/*@-webkit-keyframes aninguoc {
+	from {
+		transform: translateX(0);
+		opacity: 1;
+	}
+	to {
+		transform: translateX(-100%);
+		opacity: 0;
+	}
+}*/
+/*@-webkit-keyframes aninguoc {
+	0% {
+		transform: translateX(0);
+	}
+	40% {
+		transform: translateX(10%);
+	}
+	100% {
+		transform: translateX(-100%);
+	}
+}*/
+/*@-webkit-keyframes aninguoc {
+	form {
+		transform: translateX(0) scale(1);  
+	}
+	to {
+		transform: translateX(-100%) scale(0.85 );
+		opacity: 0;
+	}
+}
+*/
+/*@-webkit-keyframes aninguoc {
+	form {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}*/
+
+
+.xuatHienPre {
+	animation: ani1nguoc 1s forwards;
+}
+/*@-webkit-keyframes ani1nguoc {
+	from {
+		transform: scale(2);
+		opacity: 0;
+	}
+	to {
+		transform: scale(1);
+		opacity: 1;
+	}
+}*/
+/*@-webkit-keyframes ani1nguoc {
+	from {
+		transform: translateX(100%);
+		opacity: 0;
+	}
+	to {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+*/
+/*@-webkit-keyframes ani1nguoc {
+	from {
+		transform: scale(0.8);
+		opacity: 1;
+	}
+	to {
+		transform: scale(1);
+		opacity: 1;
+	}
+}*/
+/*@-webkit-keyframes ani1nguoc {
+	from {
+		transform: translateX(100%);
+		opacity: 0;
+	}
+	to {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+*/
+/*@-webkit-keyframes ani1nguoc {
+	from {
+		z-index: 8;
+		height: 0;
+		opacity: 1;
+	}
+	to {
+		z-index: 8;
+		height: 100%;
+		opacity: 1;
+	}
+} */

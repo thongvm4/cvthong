@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Hieu ung</title>
+	<link rel="stylesheet" href="1.css">
+	<link rel="stylesheet" href="css/font-awesome.css">
+	<link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body>
+
+<div id="slidewrapper">
+	<div class="slides">
+		<ul class="list-unstyled">
+			<li class="ko dangxem" style="background-image:url(https://images.pexels.com/photos/2537604/pexels-photo-2537604.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940); background-size: cover;"></li>
+			<li class="mot" 	style="background-image:url(https://images.pexels.com/photos/2131935/pexels-photo-2131935.jpeg?auto=compress&cs=tinysrgb&h=650&w=940);background-size: cover;"></li>
+			<li class="hai" style="background-image:url(https://images.pexels.com/photos/2859647/pexels-photo-2859647.jpeg?auto=compress&cs=tinysrgb&h=650&w=940);background-size: cover;"></li>
+			<li class="ba" style="background-image:url(https://images.pexels.com/photos/415978/pexels-photo-415978.jpeg?auto=compress&cs=tinysrgb&h=650&w=940);background-size: cover;"></li>
+			<li class="bon" style="background-image:url(https://images.pexels.com/photos/787630/pexels-photo-787630.jpeg?auto=compress&cs=tinysrgb&h=650&w=940);background-size: cover;"></li>
+		</ul>
+	</div>
+
+	<div class="nuts">
+		<b class="trai"><i class="fa fa-angle-left"></i></b>
+		<b class="phai"><i class="fa fa-angle-right"></i></b>
+	</div>
+</div>
+
+<script type="text/javascript">
+
+	var nutPhai = document.querySelector('.nuts b.phai');
+	var nutTrai = document.querySelector('.nuts b.trai');
+	var slides = document.querySelectorAll('.slides ul li');
+	var chiSoHienTai = 0,
+		soLuongSlide = slides.length,
+		trangthai = 'dangdungyen';
+
+	function xacDinhSlideChuyenDong (argument) {
+		if (trangthai === 'dangchuyendong') {return false};
+		trangthai = 'dangchuyendong';
+		var trangthaicuahaichuyendong = 0;
+		var phanTuHienTai = slides[chiSoHienTai];
+
+		if (argument == 'nuttrai') {
+			if ( chiSoHienTai > 0 ) {
+			chiSoHienTai--;
+			}
+			else {
+				chiSoHienTai = soLuongSlide -1;
+			}
+			// chiSoHienTai = (chiSoHienTai > 0) ? --chiSoHienTai : soLuongSlide-1;
+		}
+
+		else {
+			 if (chiSoHienTai < soLuongSlide - 1) {
+				chiSoHienTai++;
+			} else {
+				// la phan tu cuoi cung roi
+				chiSoHienTai = 0;
+			}
+			// chiSoHienTai = (chiSoHienTai < soLuongSlide - 1) ?++chiSoHienTai :chiSoHienTai = 0;
+		}
+		// chiSoHienTai = (argument == 'nuttrai') ?(chiSoHienTai = (chiSoHienTai > 0) ? --chiSoHienTai : soLuongSlide-1) :(chiSoHienTai = (chiSoHienTai < soLuongSlide - 1) ?++chiSoHienTai :chiSoHienTai = 0);
+
+		
+		var phanTuTiepTheo = slides[chiSoHienTai];
+		//endAnimation check
+		phanTuHienTai.addEventListener('webkitAnimationEnd', function () {
+			this.classList.remove('dangxem');
+			if (argument == 'nuttrai') {
+				this.classList.remove('bienHinhPre');
+			}
+			else if (argument == 'nutphai') {
+				 this.classList.remove('bienHinh');
+			}
+			
+			trangthaicuahaichuyendong++;
+			if (trangthaicuahaichuyendong === 2) {trangthai = 'dangdungyen';}
+			// trangthai = (trangthaicuahaichuyendong === 2) ?('dangdungyen') :(trangthai);
+		});
+
+
+		phanTuTiepTheo.addEventListener('webkitAnimationEnd', function () {
+			this.classList.add('dangxem');
+			if (argument == 'nuttrai') {
+				this.classList.remove('xuatHienPre');
+			}
+			else if (argument == 'nutphai') {
+				 this.classList.remove('xuatHien');
+			}
+			// this.classList.remove((argument == 'nuttrai') ?('xuatHienPre') :('xuatHien'));
+			trangthaicuahaichuyendong++;
+			// if (trangthaicuahaichuyendong === 2) {trangthai = 'dangdungyen';}
+			trangthai = (trangthaicuahaichuyendong === 2) ?('dangdungyen') :(trangthai);
+		});
+
+
+		xu ly chuyen dong
+		if (argument == 'nuttrai') {
+			phanTuHienTai.classList.add('bienHinhPre');
+			phanTuTiepTheo.classList.add('xuatHienPre');
+		}
+		else {
+			phanTuHienTai.classList.add('bienHinh');
+			phanTuTiepTheo.classList.add('xuatHien');
+		}
+		phanTuHienTai.classList.add((argument == 'nuttrai') ?('bienHinhPre') :('bienHinh'));
+		phanTuTiepTheo.classList.add((argument == 'nuttrai') ?('xuatHienPre') :('xuatHien'));
+	}
+
+	nutPhai.addEventListener('click', function (argument) {
+		xacDinhSlideChuyenDong('nutphai');
+	});
+
+	nutTrai.addEventListener('click', function (argument) {
+		xacDinhSlideChuyenDong('nuttrai');
+	});
+
+
+
+	
+</script>
+</body>
+</html>
